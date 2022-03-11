@@ -45,6 +45,9 @@ if($_SERVER['REQUEST_METHOD'] = 'GET'){
 
       $tableauProduits['produits'][] = $prod;
     }
+
+    http_reponse_code(200);
+    echo json_encode($tableauProduits);
   }
 
 }else{
