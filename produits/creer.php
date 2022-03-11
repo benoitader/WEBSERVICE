@@ -7,7 +7,19 @@ header("Access-Control-Max-Age: 3600"); // Durée de vie de la requête
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"); // Les headers autorisés vis à vis du POST client
 
 // On vérifie la méthode
-if($_SERVER['REQUEST_METHOD'] = 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+  // On inclut les fichiers de configuration et d'accès aux données
+  include_once '../config/Database.php';
+  include_once '../models/Produits.php';
+
+  // On instancie la base de données
+  $database = new Database();
+  $db = $database->getConnection();
+
+  //On instancie les produits
+  $produit = new Produits($db);
+
 
 }else{
   // On gère l'erreur

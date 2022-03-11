@@ -9,10 +9,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 
 // On vérifie que la méthode utilisée est correcte
-if($_SERVER['REQUEST_METHOD'] = 'GET'){
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
   // On inclut les fichiers de configuration et d'accès aux données
   include_once '../config/Database.php';
-  include_once '../config/Produits.php';
+  include_once '../models/Produits.php';
 
   // On instancie la base de données
   $database = new Database();
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] = 'GET'){
     }
 
     // On envoie le code réponse 200 OK
-    http_reponse_code(200);
+    http_response_code(200);
     // On encode en json et on envoie
     echo json_encode($tableauProduits);
   }
