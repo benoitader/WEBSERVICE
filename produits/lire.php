@@ -18,6 +18,35 @@ if($_SERVER['REQUEST_METHOD'] = 'GET'){
   $database = new Database();
   $db = $database->getConnection();
 
+  //On instancie les produits
+  $produits = new Produits($db);
+
+  // On récupère les données
+  $stmt = $produit->lire();
+
+  // On vérifie si on a au moins 1 produit
+  if($stmt->rowCount() > 0){
+    // On initialise un tableau associatif
+    $tableauProduits = [];
+    $tableauProduits['produits'] = [];
+
+    // On parcourt les produits
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+      extract($row); // Récupère sous forme de variables chaques colonnes de données
+
+      $prod = [
+        "id" => $id,
+        "nom" => $nom,
+        "description" => $description,
+        "prix" => $prix,
+        "categories_id" => $categories_id,
+        "categories_nom" => $categories_nom
+      ];
+
+      $tableauProduits['produits'][] = $prod;
+    }
+  }
+
 }else{
   // On gère l'erreur
   http_reponse_code(405);
