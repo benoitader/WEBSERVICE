@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] = 'GET'){
   $db = $database->getConnection();
 
   //On instancie les produits
-  $produits = new Produits($db);
+  $produit = new Produits($db);
 
   // On récupère les données
   $stmt = $produit->lire();
