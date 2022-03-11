@@ -20,9 +20,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   //On instancie les produits
   $produit = new Produits($db);
 
-
 }else{
   // On gère l'erreur
-  http_reponse_code(405);
+  http_response_code(405);
   echo json_encode(["message" => "La méthode n'est pas autorisée"]);
 }
