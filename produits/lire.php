@@ -46,7 +46,9 @@ if($_SERVER['REQUEST_METHOD'] = 'GET'){
       $tableauProduits['produits'][] = $prod;
     }
 
+    // On envoie le code réponse 200 OK
     http_reponse_code(200);
+    // On encode en json et on envoie
     echo json_encode($tableauProduits);
   }
 
