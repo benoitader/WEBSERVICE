@@ -118,7 +118,7 @@ class Produits{
         $this->categories_id=htmlspecialchars(strip_tags($this->categories_id));
         $this->id=htmlspecialchars(strip_tags($this->id));
 
-        $query->bindParam(':name', $this->name);
+        $query->bindParam(':nom', $this->nom);
         $query->bindParam(':prix', $this->prix);
         $query->bindParam(':description', $this->description);
         $query->bindParam(':categories_id', $this->categories_id);
