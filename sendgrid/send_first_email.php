@@ -18,9 +18,9 @@
 	$email->addTo( TO_EMAIL, TO_NAME );
 
 	// add our email body content
-	$email->addContent( "text/plain", "and easy to do anywhere, even with PHP" );
+	$email->addContent( "text/plain", "bravo vous venez d'ajouter un produit" );
 	$email->addContent(
-	    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+	    "text/html", "<strong>à bientôt !</strong>"
 	);
 
 	// create new sendgrid

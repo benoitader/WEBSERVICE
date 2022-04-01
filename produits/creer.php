@@ -36,6 +36,48 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       // On envoie un code 201 (methode POST -> ajout)
       http_response_code(201);
       echo json_encode(["message" => "L'ajout a été effectué"]);
+
+
+      // require our config file
+      require_once '../sendgrid/config.php';
+
+      // require composer autoload so we can use sendgrid
+      require '../sendgrid/vendor/autoload.php';
+
+      // create new sendgrid mail
+      $email = new \SendGrid\Mail\Mail();
+
+      // specify the email/name of where the email is coming from
+      $email->setFrom( FROM_EMAIL, FROM_NAME );
+
+      // set the email subject line
+      $email->setSubject( "Un nouveau produit vient d'être ajouté" );
+
+      // specify the email/name we are sending the email to
+      $email->addTo( TO_EMAIL, TO_NAME );
+
+      // add our email body content
+      $email->addContent( "text/plain", "Vous venez d'ajouter un produit" );
+      $email->addContent(
+          "text/html", "<strong>c'est facile, vous voyez !</strong>"
+      );
+
+      // create new sendgrid
+      $sendgrid = new \SendGrid( SENDGRID_API_KEY );
+
+      try {
+        // try and send the email
+          $response = $sendgrid->send( $email );
+
+          // print out response data
+          print $response->statusCode() . "\n";
+          print_r( $response->headers() );
+          print $response->body() . "\n";
+      } catch ( Exception $e ) {
+        // something went wrong so display the error message
+          echo 'Caught exception: '. $e->getMessage() ."\n";
+      }
+
     }else{
       // Ici la création n'a pas fonctionné
       // On envoie un code 503
