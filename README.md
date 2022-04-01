@@ -13,3 +13,11 @@ POST pour ajouter des données
 PUT pour modifier des données
 DELETE pour supprimer des données
 ADER BENOIT ⚡
+
+# SENGRID envoie de mail
+
+Liens d'aide :
+
+  - https://www.youtube.com/watch?v=fEobqi3N7zw&t=499s,
+  - https://www.hostinger.fr/tutoriels/comment-installer-et-utiliser-composer/,
+  - https://app.sendgrid.com/guide/integrate/langs/php
