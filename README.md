@@ -20,4 +20,5 @@ Liens d'aide :
 
   - https://www.youtube.com/watch?v=fEobqi3N7zw&t=499s,
   - https://www.hostinger.fr/tutoriels/comment-installer-et-utiliser-composer/,
-  - https://app.sendgrid.com/guide/integrate/langs/php
+  - https://app.sendgrid.com/guide/integrate/langs/php,
+  - https://laracasts.com/discuss/channels/laravel/curl-error-77-error-setting-certificate-verify-locations-cafile-cwamp64binphpphp719extrassslcacertpem-capath-none
